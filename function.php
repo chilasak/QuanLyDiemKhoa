@@ -5,19 +5,50 @@
     define('DB_PASS', '');
     define('DB_NAME', 'quanlydiem');
     
-  
-            $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
-           // $this->dbcon = $conn;
-           if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-            }
-            echo "Connected successfully";
+    class DB_con {
 
-            // if (!mysqli_connect_errno()) {
-              
-            //    echo "Failed to connect to MySQL : " . mysqli_connect_error();
-            // }
-            // echo "Connected successfully;
-           
-   
+        function __construct() {
+            $conn = mysqli_connect(DB_SERVER, DB_USER, DB_PASS, DB_NAME);
+            $this->dbcon = $conn;
+
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL : " . mysqli_connect_error();
+            }
+        }
+
+        public function insert($masv, $tensv, $ngaysinh, $gioitinh,$diachi,	$malop) {
+            $result = mysqli_query($this->dbcon, "INSERT INTO SV(MaSV,TenSV,NgaySinh,Gioitinh,DiaChi,MaLop) VALUES($masv, '$tensv', '$ngaysinh', '$gioitinh','$diachi','$malop')");
+            return $result;
+        }
+
+        public function fetchdata() {
+            $result = mysqli_query($this->dbcon, "SELECT * FROM tblusers");
+            return $result;
+        }
+
+        public function fetchonerecord($userid) {
+            $result = mysqli_query($this->dbcon, "SELECT * FROM tblusers WHERE id = '$userid'");
+            return $result;
+        }
+
+        public function update($firstname, $lastname, $email, $phonenumber,	$address, $userid) {
+            $result = mysqli_query($this->dbcon, "UPDATE tblusers SET 
+                firstname = '$firstname',
+                lastname = '$lastname',
+                email = '$email',
+                phonenumber = '$phonenumber',
+                address = '$address'
+                WHERE id = '$userid'
+            ");
+            return $result;
+        }
+
+        public function delete($userid) {
+            $deleterecord = mysqli_query($this->dbcon, "DELETE FROM tblusers WHERE id = '$userid'");
+            return $deleterecord;
+        }
+
+    }
+    
+
 ?>
