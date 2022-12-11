@@ -76,7 +76,7 @@
                 <div class="form-group">
                   <div class="form-label-group">
                     <input type="text" name="txt_diemGK" id="inputdiemGK" class="form-control" placeholder="Điểm giữa kỳ" required="required">
-                    <label for="inputdiemGK">Điểm giữa kỳ</label>
+                    <label for="inputdiemGK">Điểm quá trình</label>
                   </div>
                 </div>
                 <div class="form-group">
