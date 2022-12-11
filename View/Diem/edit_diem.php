@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Admin</title>
+  <title>Sửa Điểm học phần</title>
 
   <!-- phông chữ-->
   <link href="bootstraps/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,7 +25,7 @@
 
   <div id="wrapper">
 
-    <!-- Thanh công cụ footer-->
+    <!-- Thanh công cụ -->
     <?php require_once 'View/masster/footer.php'; ?>
 
     <div id="content-wrapper">
@@ -35,60 +35,59 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">Bảng học phần</a>
+            <a href="index.php?controllers=quanly&action=Admin">Bảng điểu kiểm</a>
           </li>
-          <li class="breadcrumb-item active">Học phần</li>
+          <li class="breadcrumb-item active">Sửa điểm</li>
         </ol>
 
-        <!-- DataTables Demo -->
-        <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-          Hiện thị bảng bảng học phần</div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <div>
-                <a href="index.php?controllers=quanly&action=Add_hocphan"><button class="btn btn-primary" type="submit">Thêm mới</button></a>  
-              </div>
-              <br/>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>STT</th>
-                    <th>Mã môn</th>
-                    <th>Tên môn</th>
-                    <th>Số tín chỉ</th>
-                    <th>Mã học kỳ</th>
-                    <th>Hành động</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php 
-                  $STT = 0;
-                  foreach ($listhocphan as $value) {
-                    $STT++;
-                   ?>
-                  <tr>
-                    <td><?php echo $STT; ?></td>
-                    <td><?php echo $value['ma_mon']; ?></td>
-                    <td><?php echo $value['ten_mon']; ?></td>
-                    <td><?php echo $value['sotinchi']; ?></td>
-                    <td><?php echo $value['ma_hk']; ?></td>
-                    <td>
-                      <a href="index.php?controllers=quanly&action=Edit_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Sửa"><i class="fas fa-edit"></i> </a>
-                      <a onclick="return confirm('Bạn có chắc chắn muốn xóa không..?')" href="index.php?controllers=quanly&action=Delete_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Xóa"><i class="fas fa-trash-alt"> </i></a>
-                    </td>
-                  </tr>
-                  <?php } ?>
-                </tbody>
-              </table>
+        <!-- DataTables Example -->
+        <div class="container">
+          <div class="card card-login mx-auto mt-5">
+            <div class="card-header">Sửa điểm học phần</div>
+            <div class="card-body">
+              <form action="#" method="POST">
+                <?php if (isset($thatbai)) {
+                  echo "<span style='color:red'>".($thatbai)."</span>";
+                }
+
+                foreach ($list_diem_lop_sinhvien as $value) {
+
+                 ?>
+                <div class="form-group">
+                  <label for="sel1">Họ và tên</label>
+                  <select class="form-control" id="sel1" name="sellist1" size="2">
+                    <option value="<?php echo $value['ma_sv']; ?>" disabled><?php echo $value['hoten_sv']; ?></option>
+                  </select>
+                  <br>
+                  <label for="sel2">Tên học phần</label>
+                  <select class="form-control" id="sel2" name="sellist2" size="2">
+                    <option value="<?php echo $value['ma_mon']; ?>" disabled><?php echo $value['ten_mon']; ?></option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="txt_diemGK" id="inputdiemGK" class="form-control" value="<?php echo $value['diem_giua_ky']; ?>" placeholder="Điểm giữa kỳ" required="required">
+                    <label for="inputdiemGK">Điểm giữa kỳ</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="form-label-group">
+                    <input type="text" name="txt_diemTHK" id="inputdiemTHK" class="form-control" value="<?php echo $value['diem_thi_hp']; ?>" placeholder="Điểm thi học kỳ" required="required">
+                    <label for="inputdiemTHK">Điểm thi học kỳ</label>
+                  </div>
+                </div>
+                <?php } ?>
+                <input type="submit" name="suaDiem" class="btn btn-primary btn-block" value="Sửa">
+              </form>
             </div>
-            <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
           </div>
         </div>
-        <!-- /.container-fluid -->
 
       </div>
+      <!-- /.container-fluid -->
+
+    </div>
     <!-- /.content-wrapper -->
 
   </div>

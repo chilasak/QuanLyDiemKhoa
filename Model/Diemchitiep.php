@@ -11,6 +11,10 @@ class TongDiemChitiet extends Database_ql_diem
 	{
 		return parent::Diem_C($text_diem);
 	}
+	public function HB($text_diem)
+	{
+		return parent::HB($text_diem);
+	}
 	public function XL_TK($text_diem)
 	{
 		return parent::XL($text_diem);

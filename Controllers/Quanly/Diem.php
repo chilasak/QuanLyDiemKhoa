@@ -126,7 +126,7 @@ switch ($action) {
 			$TongSTC = 0;
 			$TongHDS = 0;
 			foreach ($sv_tc_sv as $value) {
-				$diemHP = round(($value['diem_giua_ky']*0.3)+($value['diem_thi_hp']*0.7),1);
+				$diemHP = round(($value['diem_giua_ky']*0.4)+($value['diem_thi_hp']*0.6),1);
 				$diemchu = TongDiemChitiet::DC($diemHP);
 				$diemheso = TongDiemChitiet::HDS($diemHP);
 
@@ -138,6 +138,8 @@ switch ($action) {
 			$tbtk = round($TongHDS/$TongSTC,2);
             $xltk = TongDiemChitiet::XL_TK($TongHDS/$TongSTC);
 
+			$xet=TongDiemChitiet::HB($TongHDS/$TongSTC);;
+
             // echo "Tổng_STC: ".$TongSTC."<br/>";
             // echo "TB_TK: ".$tbtk."<br/>";
             // echo "XL_TK: ".$xltk."<br/>";
@@ -145,9 +147,10 @@ switch ($action) {
             $TSTC = $TongSTC;
             $TB_Toankhoa = $tbtk;
             $XL_Toankhoa = $xltk;
+			$X_hocbong = $xet;
 
-            array_push($sv[$i],$TSTC,$TB_Toankhoa,$XL_Toankhoa);
-            $sv[$i] += ['STC' => $TSTC,'TB_Toankhoa' => $TB_Toankhoa,'XL_Toankhoa' => $XL_Toankhoa];
+            array_push($sv[$i],$TSTC,$TB_Toankhoa,$XL_Toankhoa,$X_hocbong);
+            $sv[$i] += ['STC' => $TSTC,'TB_Toankhoa' => $TB_Toankhoa,'XL_Toankhoa' => $XL_Toankhoa,'XetHB' => $X_hocbong];
 		}
 
 		//$taokey = array_combine($keyarr, $TSTC);

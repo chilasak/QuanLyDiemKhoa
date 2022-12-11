@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Admin</title>
+  <title>Thống kê</title>
 
   <!-- phông chữ-->
   <link href="bootstraps/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,60 +35,68 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
-            <a href="#">Bảng học phần</a>
+            <a href="#">Bảng điểu kiểm</a>
           </li>
-          <li class="breadcrumb-item active">Học phần</li>
+          <li class="breadcrumb-item active">Danh sách sinh viên</li>
         </ol>
 
-        <!-- DataTables Demo -->
+        <!-- DataTables Example -->
         <div class="card mb-3">
           <div class="card-header">
             <i class="fas fa-table"></i>
-          Hiện thị bảng bảng học phần</div>
+            Tất cả sinh viên</div>
           <div class="card-body">
             <div class="table-responsive">
-              <div>
-                <a href="index.php?controllers=quanly&action=Add_hocphan"><button class="btn btn-primary" type="submit">Thêm mới</button></a>  
-              </div>
-              <br/>
-              <table class="table table-bordered">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
                     <th>STT</th>
-                    <th>Mã môn</th>
-                    <th>Tên môn</th>
-                    <th>Số tín chỉ</th>
-                    <th>Mã học kỳ</th>
-                    <th>Hành động</th>
+                    <th>Mã sinh viên</th>
+                    <th>Họ và tên</th>
+                    <th>Ngày sinh</th>
+                    <th>Giới tính</th>
+                    <th>Dân tộc</th>
+                    <th>Nơi sinh</th>
+                    <th>Lớp</th>
+                    <th>Tổng STC</th>
+                    <th>TB toàn khóa</th>
+                    <th>XL toàn khóa</th>
+                    <th>Học bổng</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php 
-                  $STT = 0;
-                  foreach ($listhocphan as $value) {
-                    $STT++;
+                  <?php
+                    $STT = 0;
+                    foreach ($sv as $value) {
+                      $STT++;
                    ?>
                   <tr>
                     <td><?php echo $STT; ?></td>
-                    <td><?php echo $value['ma_mon']; ?></td>
-                    <td><?php echo $value['ten_mon']; ?></td>
-                    <td><?php echo $value['sotinchi']; ?></td>
-                    <td><?php echo $value['ma_hk']; ?></td>
-                    <td>
-                      <a href="index.php?controllers=quanly&action=Edit_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Sửa"><i class="fas fa-edit"></i> </a>
-                      <a onclick="return confirm('Bạn có chắc chắn muốn xóa không..?')" href="index.php?controllers=quanly&action=Delete_hocphan&maMon=<?php echo $value['ma_mon']; ?>" title="Xóa"><i class="fas fa-trash-alt"> </i></a>
-                    </td>
+                    <td><?php echo $value['ma_sv']; ?></td>
+                    <td><?php echo $value['hoten_sv']; ?></td>
+                    <td><?php echo date('d-m-Y',strtotime($value['ngay_sinh'])); ?></td>
+                    <td><?php echo $value['gioi_tinh']; ?></td>
+                    <td><?php echo $value['dan_toc']; ?></td>
+                    <td><?php echo $value['noi_sinh']; ?></td>
+                    <td><?php echo $value['ten_lop']; ?></td>
+                    <td><?php echo $value['STC']; ?></td>
+                    <td><?php echo $value['TB_Toankhoa']; ?></td>
+                    <td><?php echo $value['XL_Toankhoa']; ?></td>
+                    <td><?php echo $value['XetHB']; ?></td>
                   </tr>
-                  <?php } ?>
+                  <?php 
+                    }
+                   ?>
                 </tbody>
               </table>
             </div>
-            <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
           </div>
+          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
         </div>
-        <!-- /.container-fluid -->
 
       </div>
+      <!-- /.container-fluid -->
+    </div>
     <!-- /.content-wrapper -->
 
   </div>

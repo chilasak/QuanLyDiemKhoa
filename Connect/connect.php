@@ -102,6 +102,14 @@ class Database_ql_diem
 		}
 		return $xl;
 	}
+	public function HB($diem){
+		if ($diem >= 3.2) {
+			$xet = "Đủ ĐK";
+		}else{
+			$xet = "Không đủ ĐK";
+		}
+		return $xet;
+	}
 
 }
  ?>
