@@ -1,6 +1,12 @@
 <ul class="sidebar navbar-nav">
-	<li class="nav-item active">
+<li class="nav-item active">
 		<a class="nav-link" href="index.php?controllers=quanly&action=Admin">
+			<i class="fa fa-home"></i>
+			<span>Dashboard</span>
+		</a>
+	</li>
+	<li class="nav-item active">
+		<a class="nav-link" href="index.php?controllers=quanly&action=sinhvien">
 			<i class="fas fa-fw fa-tachometer-alt"></i>
 			<span>Bảng Sinh viên</span>
 		</a>

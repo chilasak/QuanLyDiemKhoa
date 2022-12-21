@@ -31,7 +31,8 @@
     <!-- Thanh công cụ footer-->
     <?php require_once 'footer.php'; ?>
 
-    <?php require_once 'tbl_Sinhvien.php'; ?>
+    <?php require_once 'dashboard.php'; ?>
+  
     <!-- /.content-wrapper -->
 
   </div>
