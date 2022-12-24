@@ -16,7 +16,7 @@
         ]);
 
         var options = {
-          title: 'Số lượng sinh viên trong lớp','width':577,'height':300,
+          title: 'Số lượng sinh viên trong lớp','width':650,'height':350,
           is3D: true,
         };
 
@@ -115,7 +115,7 @@
                                        <span>Số lượng sinh viên</span> 
                                     </div>
                                     <div class="card-body">
-                                        <div id="piechart_3d" width="721" height="287" style="display: block; height: 300px; width: 577px;"></div>
+                                        <div id="piechart_3d" width="721" height="287" ></div>
                                         <!-- <canvas id="piechart_3d" width="721" height="287" style="display: block; height: 230px; width: 577px;" class="chartjs-render-monitor"> -->
                                     </canvas>
                                 </div>
@@ -128,7 +128,7 @@
                                         Bar Chart Example
                                     </div>
                                     <div class="card-body">
-                                             <div id="piechart_3d2" width="721" height="287" style="display: block; height: 300px; width: 577px;"></div>
+                                             <div id="piechart_3d2" width="721" height="287" ></div>
                                     </div>
                                 </div>
                             </div>
