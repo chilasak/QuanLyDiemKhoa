@@ -28,6 +28,11 @@ class MonHP extends Database_ql_diem
 		$sql = "SELECT * FROM monhocphan";
 		return parent::Getdata($sql);
 	}
+	public function CountMon(){
+		$sql = "SELECT COUNT(ma_mon) as SLMON FROM monhocphan;";
+		return parent::Getdata($sql);
+	
+	}
 }
 
  ?>

@@ -1,16 +1,11 @@
 <ul class="sidebar navbar-nav">
 <li class="nav-item active">
 		<a class="nav-link" href="index.php?controllers=quanly&action=Admin">
-			<i class="fa fa-home"></i>
+			<i class="fa fa-fw fa-home"></i>
 			<span>Dashboard</span>
 		</a>
 	</li>
-	<li class="nav-item active">
-		<a class="nav-link" href="index.php?controllers=quanly&action=sinhvien">
-			<i class="fas fa-fw fa-tachometer-alt"></i>
-			<span>Bảng Sinh viên</span>
-		</a>
-	</li>
+	
 	<li class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			<i class="fas fa-fw fa-folder"></i>
@@ -27,6 +22,14 @@
 			<a class="dropdown-item" href="index.php?controllers=quanly&action=list_hocphan">Học phần</a>
 		</div>
 	</li>
+
+	<li class="nav-item ">
+		<a class="nav-link" href="index.php?controllers=quanly&action=sinhvien">
+			<i class="fas fa-fw fa-tachometer-alt"></i>
+			<span>Bảng Sinh viên</span>
+		</a>
+	</li>
+
 	<li class="nav-item">
 		<a class="nav-link" href="index.php?controllers=diem&action=Tonghopdiem">
 			<i class="fas fa-fw fa-chart-area"></i>

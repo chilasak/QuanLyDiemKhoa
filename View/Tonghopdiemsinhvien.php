@@ -142,7 +142,7 @@
                     foreach ($ttDiem as $value) {
                       $STT++;
 
-                      $diemHP = round(($value['diem_giua_ky']*0.3)+($value['diem_thi_hp']*0.7),1);
+                      $diemHP = round(($value['diem_giua_ky']*0.4)+($value['diem_thi_hp']*0.6),1);
                       $diemchu = TongDiemChitiet::DC($diemHP);
                       $diemheso = TongDiemChitiet::HDS($diemHP);
                       

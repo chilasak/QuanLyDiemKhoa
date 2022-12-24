@@ -137,7 +137,7 @@
                     $STT = 0;
                     foreach ($dHP as $value) {
                       $STT++;
-                      $TBHP = ($value['diem_giua_ky']*0.3)+($value['diem_thi_hp']*0.7);
+                      $TBHP = ($value['diem_giua_ky']*0.4)+($value['diem_thi_hp']*0.6);
                    ?>
                   <tr>
                     <td><?php echo $STT; ?></td>

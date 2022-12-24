@@ -34,6 +34,15 @@ class Sinhvien extends Database_ql_diem
 		$sql = "SELECT * FROM sinhvien, lop WHERE sinhvien.ma_lop = lop.ma_lop AND sinhvien.hoten_sv LIKE '%$txt_Tiemkiem%'";
 		return parent::Getdata($sql);
 	}
+	public function CountSV(){
+		$sql = "SELECT COUNT(ma_sv) AS SLSV FROM sinhvien;";
+		return parent::Getdata($sql);
+	}
+	public function CountSVLop(){
+		$sql = "SELECT ma_lop, COUNT(ma_sv) AS SLSV FROM sinhvien GROUP BY ma_lop;";
+		return parent::Getdata($sql);
+	}
+	
 }
 
  ?>

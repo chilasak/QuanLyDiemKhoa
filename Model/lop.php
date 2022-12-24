@@ -38,6 +38,10 @@ class Lop extends Database_ql_diem
 		$sql = "SELECT NOW() AS Thoigian";
 		return parent::Getdata($sql);
 	}
+	public function CountLop(){
+		$sql = "SELECT COUNT(ma_lop) AS SLLOP FROM lop;";
+		return parent::Getdata($sql);
+	}
 }
 
  ?>

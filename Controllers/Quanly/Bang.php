@@ -261,7 +261,11 @@ switch ($action) {
 		}
 		break;
 	case 'Admin':
-		//$list_sv = Sinhvien::List();
+		$list_sv = Sinhvien::List();
+		$slsv = Sinhvien::CountSV();
+		$sllop = lop::CountLop();
+		$slmon = MonHP::CountMon();
+		$lopsv = Sinhvien::CountSVLop();
 		require_once 'View/masster/admin.php';
 		break;
 	case 'sinhvien':
