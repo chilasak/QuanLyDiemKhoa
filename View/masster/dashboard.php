@@ -91,11 +91,11 @@
         ]);
 
         var options = {
-          title: 'Số lượng sinh viên trong lớp','width':650,'height':350,
+          title: 'Số lượng sinh viên trong lớp','height':350,
           is3D: true,
         };
         var options2 = {
-          title: 'Điểm trung bình toàn khóa','width':650,'height':350,
+          title: 'Điểm trung bình toàn khóa','height':350,
           is3D: true,
         };
 
@@ -197,7 +197,9 @@
                                        <span>Điểm trung bình</span> 
                                     </div>
                                     <div class="card-body">
-                                        <div id="piechart_3d" width="721" height="287" ></div>
+                                    <div class="inner">
+                                        <div id="piechart_3d"  ></div>
+                                        </div>
                                         <!-- <canvas id="piechart_3d" width="721" height="287" style="display: block; height: 230px; width: 577px;" class="chartjs-render-monitor"> -->
                                     </canvas>
                                 </div>
