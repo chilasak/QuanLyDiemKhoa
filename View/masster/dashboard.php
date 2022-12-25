@@ -33,9 +33,9 @@
                      
                     }
                     $list_sv;
-                    $xeploai1="Xuất sác";
-                    $xeploai2="Gioi";
-                    $xeploai3="Kha";
+                    $xeploai1="Xuất sắc";
+                    $xeploai2="Giỏi";
+                    $xeploai3="Khá";
                     $xeploai4="Trung bình";
                     $xeploai5="Yếu";
 
@@ -95,7 +95,7 @@
           is3D: true,
         };
         var options2 = {
-          title: 'Điểm trung bình toàn khao','width':650,'height':350,
+          title: 'Điểm trung bình toàn khóa','width':650,'height':350,
           is3D: true,
         };
 
