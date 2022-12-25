@@ -1,3 +1,67 @@
+<?php
+                    $STT = 0;
+
+                    $tb=0;
+                    $yeu=0;
+                    $kha=0;
+                    $gioi=0;
+                    $xs=0;
+                  
+
+                    foreach ($sv as $value) {
+                      
+                        if ( $value['TB_Toankhoa'] >= 3.6) {
+                            $xs = $xs+1;
+                            // echo $xs;
+                        }
+                        elseif ($value['TB_Toankhoa'] >= 3.2) {
+                            $gioi= $gioi+1;
+                        }
+                        elseif ($value['TB_Toankhoa'] >= 2.5) {
+                            $kha= $kha+1;
+                        }
+                        elseif ($value['TB_Toankhoa'] >= 2) {
+                            $tb=$tb+1;
+                        }
+                        else
+                        {
+                            $yeu=$yeu+1;
+                        }
+                     
+                       
+                    //   echo $value['XL_Toankhoa']." ";
+                     
+                    }
+                    $list_sv;
+                    $xeploai1="Xuất sác";
+                    $xeploai2="Gioi";
+                    $xeploai3="Kha";
+                    $xeploai4="Trung bình";
+                    $xeploai5="Yếu";
+
+                    
+                    $list= array(
+                        array( $xeploai1, $xs),
+                        array( $xeploai2, $gioi),
+                        array( $xeploai3, $kha),
+                        array( $xeploai4, $tb),
+                        array( $xeploai5, $yeu));
+                
+              
+
+                //    for ($row = 0; $row < 5; $row++) {
+                //     echo "<p><b>Row number $row</b></p>";
+                //     echo "<ul>";
+                //     for ($col = 0; $col < 2; $col++) {
+                //       echo "<li>".$list[$row][$col]."</li>";
+                //     }
+                //     echo "</ul>";
+                //   }
+                   
+                 
+
+               
+ ?>
 <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
@@ -5,7 +69,7 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
+          ['ma_lop', 'so luong sv'],
           <?php 
             foreach ($lopsv as $value) {
                 echo "['".$value['ma_lop']. "',".$value['SLSV']."],";
@@ -14,17 +78,33 @@
             ?>
          
         ]);
+        var data2 = google.visualization.arrayToDataTable([
+          ['ma_lop', 'so luong sv'],
+          <?php 
+          echo  "['".$list[0][0]."',". $list[0][1]."],";
+          echo  "['".$list[1][0]."',". $list[1][1]."],";
+          echo   "['".$list[2][0]."',". $list[2][1]."],";
+          echo   "['".$list[3][0]."',". $list[3][1]."],";
+          echo   "['".$list[4][0]."',". $list[4][1]."],";
+            ?>
+         
+        ]);
 
         var options = {
           title: 'Số lượng sinh viên trong lớp','width':650,'height':350,
           is3D: true,
         };
+        var options2 = {
+          title: 'Điểm trung bình toàn khao','width':650,'height':350,
+          is3D: true,
+        };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
-        chart.draw(data, options);
+        var chart = new google.visualization.ColumnChart(document.getElementById('piechart_3d'));
+        chart.draw(data2, options2);
         var chart1 = new google.visualization.PieChart(document.getElementById('piechart_3d2'));
         chart1.draw(data, options);
       }
+    
     </script>
   </head>
 <div id="content-wrapper">
@@ -96,12 +176,14 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">
                                     <div class="inner">
-                                        <h3>13</h3>
-                                        <p>Giáo viên</p>
+                                        <h3><?php
+                                        $dem =  $list[0][1]+$list[1][1];
+                                         echo $dem; ?></h3>
+                                        <p>Sinh viên đủ điều kiện</p>
                                         </div>
                                     </div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="index.php?controllers=diem&action=Thong_ke">View Details</a>
                                         <div class="small text-white"><svg class="svg-inline--fa fa-angle-right" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-right" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512" data-fa-i2svg=""><path fill="currentColor" d="M64 448c-8.188 0-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L178.8 256L41.38 118.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160c12.5 12.5 12.5 32.75 0 45.25l-160 160C80.38 444.9 72.19 448 64 448z"></path></svg><!-- <i class="fas fa-angle-right"></i> Font Awesome fontawesome.com --></div>
                                     </div>
                                 </div>
@@ -112,7 +194,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                      <i class="fas fa-fw fa-folder"></i>
-                                       <span>Số lượng sinh viên</span> 
+                                       <span>Trung bình điểm</span> 
                                     </div>
                                     <div class="card-body">
                                         <div id="piechart_3d" width="721" height="287" ></div>
@@ -125,7 +207,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                     <i class="fas fa-fw fa-folder"></i>
-                                        Bar Chart Example
+                                    <span>Số lượng sinh viên</span> 
                                     </div>
                                     <div class="card-body">
                                              <div id="piechart_3d2" width="721" height="287" ></div>

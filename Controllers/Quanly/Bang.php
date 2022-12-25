@@ -4,6 +4,7 @@ require_once 'Model/dangnhap.php';
 require_once 'Model/lop.php';
 require_once 'Model/sinhvien.php';
 require_once 'Model/Diemchitiep.php';
+require_once 'Model/diemhocpham.php';
 require_once 'Model/hocky.php';
 require_once 'Model/monhocphan.php';
 if (isset($_GET['action'])) {
@@ -266,6 +267,46 @@ switch ($action) {
 		$sllop = lop::CountLop();
 		$slmon = MonHP::CountMon();
 		$lopsv = Sinhvien::CountSVLop();
+		$sv = Sinhvien::List();
+		$dem=0;
+			foreach ($sv as $value) {
+				$ma_sv_l[] = $value['ma_sv'];
+				$dem = $dem+1;
+			}
+			for($i = 0; $i < $dem; $i++)
+			{  	
+				//echo "Mã sinh viên [$i] là: ".$ma_sv_l[$i]."<br/>";
+				$sv_tc_sv = TongDiemChitiet::TDiem($ma_sv_l[$i]);
+
+				$TongSTC = 0;
+				$TongHDS = 0;
+				foreach ($sv_tc_sv as $value) {
+					$diemHP = round(($value['diem_giua_ky']*0.4)+($value['diem_thi_hp']*0.6),1);
+					$diemchu = TongDiemChitiet::DC($diemHP);
+					$diemheso = TongDiemChitiet::HDS($diemHP);
+
+					$TinhDHS = $value['sotinchi']*$diemheso;
+
+					$TongSTC += $value['sotinchi'];
+					$TongHDS += $TinhDHS;
+				}
+				$tbtk = round($TongHDS/$TongSTC,2);
+				$xltk = TongDiemChitiet::XL_TK($TongHDS/$TongSTC);
+
+				$xet=TongDiemChitiet::HB($TongHDS/$TongSTC);;
+
+				// echo "Tổng_STC: ".$TongSTC."<br/>";
+				// echo "TB_TK: ".$tbtk."<br/>";
+				// echo "XL_TK: ".$xltk."<br/>";
+
+				$TSTC = $TongSTC;
+				$TB_Toankhoa = $tbtk;
+				$XL_Toankhoa = $xltk;
+				$X_hocbong = $xet;
+
+				array_push($sv[$i],$TSTC,$TB_Toankhoa,$XL_Toankhoa,$X_hocbong);
+				$sv[$i] += ['STC' => $TSTC,'TB_Toankhoa' => $TB_Toankhoa,'XL_Toankhoa' => $XL_Toankhoa,'XetHB' => $X_hocbong];
+			}
 		require_once 'View/masster/admin.php';
 		break;
 	case 'sinhvien':
