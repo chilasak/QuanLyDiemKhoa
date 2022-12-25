@@ -79,7 +79,7 @@
          
         ]);
         var data2 = google.visualization.arrayToDataTable([
-          ['ma_lop', 'so luong sv'],
+          ['ma_lop', 'Số lượng sinh viên'],
           <?php 
           echo  "['".$list[0][0]."',". $list[0][1]."],";
           echo  "['".$list[1][0]."',". $list[1][1]."],";
@@ -137,7 +137,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
+                                <div class="card bg-secondary text-white mb-4">
                                     <div class="card-body">
                                         <div class="inner">
                                         <?php 
@@ -173,7 +173,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
+                                <div class="card bg-info text-white mb-4">
                                     <div class="card-body">
                                     <div class="inner">
                                         <h3><?php
@@ -193,8 +193,8 @@
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                     <i class="fas fa-fw fa-folder"></i>
-                                       <span>Trung bình điểm</span> 
+                                     <i class="fas fa-fw fa-chart-bar"></i>
+                                       <span>Điểm trung bình</span> 
                                     </div>
                                     <div class="card-body">
                                         <div id="piechart_3d" width="721" height="287" ></div>
@@ -206,7 +206,7 @@
                             <div class="col-xl-6">
                                 <div class="card mb-4">
                                     <div class="card-header">
-                                    <i class="fas fa-fw fa-folder"></i>
+                                    <i class="fas fa-fw fa-chart-pie"></i>
                                     <span>Số lượng sinh viên</span> 
                                     </div>
                                     <div class="card-body">
