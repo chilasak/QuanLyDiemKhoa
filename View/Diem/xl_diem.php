@@ -112,7 +112,9 @@
               </form>
               <!-- End TL -->
               <div>
-                <a href="index.php?controllers=diem&action=Add_Diem_HP"><button class="btn btn-primary" type="submit">Thêm mới</button></a>  
+                <a href="index.php?controllers=diem&action=Add_Diem_HP"><button class="btn btn-primary" type="submit">Thêm mới</button></a>
+                <input  type="file" class="btn btn-success" style="width: 170px; height: 40px;"> 
+                <button class="btn btn-success" type="button">Button</button>
               </div>
               <br/>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
