@@ -197,7 +197,7 @@
                                        <span>Điểm trung bình</span> 
                                     </div>
                                     <div class="card-body">
-                                    <div class="inner">
+                                    <div class="inner" >
                                         <div id="piechart_3d"  ></div>
                                         </div>
                                         <!-- <canvas id="piechart_3d" width="721" height="287" style="display: block; height: 230px; width: 577px;" class="chartjs-render-monitor"> -->
@@ -225,6 +225,7 @@
                             Tất cả sinh viên</div>
                         <div class="card-body">
                             <div class="table-responsive">
+                                
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
@@ -270,7 +271,12 @@
                             </table>
                             </div>
                         </div>
-                        <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
+                        <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59
+                        <div class="float-right">
+                            <a href="index.php?controllers=export&action=exportsv" class="btn btn-success"> <i class="fas fa-fw fa-download"></i>Export</a>
+                        
+                        </div>
+                        </div>
                         </div>
                       
                     </div>

@@ -32,6 +32,8 @@
 
       <div class="container-fluid">
 
+      
+       
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -48,6 +50,8 @@
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+             
+        </div>
                 <thead>
                   <tr>
                     <th>STT</th>
@@ -92,8 +96,13 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
-        </div>
+          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59
+          <div class="float-right">
+                <a href="index.php?controllers=export&action=exportsv" class="btn btn-success"> <i class="fas fa-fw fa-download"></i>Export</a>
+            
+            </div>
+          </div>
+          
   <!-- /#wrapper -->
 
   <!-- Scroll to Top Button-->

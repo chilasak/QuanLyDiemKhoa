@@ -1,6 +1,8 @@
 <div id="content-wrapper">
 
       <div class="container-fluid">
+        
+       
 
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
@@ -57,7 +59,12 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
+          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59
+          <div class="float-right">
+                <a href="" class="btn btn-success"> <i class="fas fa-fw fa-download"></i>Export</a>
+            
+            </div>
+          </div>
         </div>
 
       </div>

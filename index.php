@@ -18,6 +18,9 @@ switch ($controllers) {
 	case 'diem':
 		require_once 'Controllers/Quanly/Diem.php';
 		break;
+	case 'export':
+		require_once 'Controllers/Quanly/Export.php';
+		break;
 	default:
 		// echo "controllers không tồn tại";
 		require_once 'Controllers/Login/dangnhap.php';

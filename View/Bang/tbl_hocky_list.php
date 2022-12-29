@@ -49,6 +49,8 @@
             <div class="table-responsive">
               <div>
                 <a href="index.php?controllers=quanly&action=Add_hocky"><button class="btn btn-primary" type="submit">Thêm mới</button></a>  
+                <a href="index.php?controllers=export&action=export_thongke" class="btn btn-success"> <i class="fas fa-fw fa-download"></i>Export</a>
+            
               </div>
               <br/>
               <table class="table table-bordered">

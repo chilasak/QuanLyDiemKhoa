@@ -91,7 +91,12 @@
               </table>
             </div>
           </div>
-          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59</div>
+          <div class="card-footer small text-muted">Cập nhật ngày hôm qua lúc 11:59
+          <div class="float-right">
+                <a href="index.php?controllers=export&action=export_thongke" class="btn btn-success"> <i class="fas fa-fw fa-download"></i>Export</a>
+            
+            </div>
+          </div>
         </div>
 
       </div>

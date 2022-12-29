@@ -48,7 +48,9 @@
           <div class="card-body">
             <div class="table-responsive">
               <div>
-                <a href="index.php?controllers=quanly&action=Add_lop"><button class="btn btn-primary" type="submit">Thêm mới</button></a>  
+                <a href="index.php?controllers=quanly&action=Add_lop"><button class="btn btn-primary" type="submit">Thêm mới</button></a> 
+                <a href="index.php?controllers=export&action=export_thongke" class="btn btn-success"> <i class="fas fa-fw fa-upload"></i>Export</a>
+             
               </div>
               <br/>
               <table class="table table-bordered">
