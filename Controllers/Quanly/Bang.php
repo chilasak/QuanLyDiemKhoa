@@ -312,6 +312,7 @@ switch ($action) {
 	case 'sinhvien':
 			$list_sv = Sinhvien::List();
 			require_once 'View/masster/tbl_Sinhvien.php';
+			
 			break;
 	default:
 		echo "Trang không tồn tại";

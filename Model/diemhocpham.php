@@ -8,6 +8,14 @@ class DiemMHP extends Database_ql_diem
 		$sql = "INSERT INTO diemhocphan(ma_sv, ma_mon, diem_giua_ky, diem_thi_hp) VALUES ('$text_masv','$text_mamon','$text_diemgk','$text_diemthk')";
 		return parent::Execute($sql);
 	}
+	public function GetID($text_masv){
+		$sql = "SELECT ma_sv FROM diemhocphan WHERE ma_sv='$text_masv';";
+		return parent::Execute($sql);
+	}
+	public function GetIDMon($text_masv,$text_mamon){
+		$sql = "SELECT ma_sv FROM diemhocphan WHERE ma_sv='$text_masv' AND ma_mon='$text_mamon';";
+		return parent::Execute($sql);
+	}
 	public function Edit($text_masv,$text_mamon,$text_diemgk,$text_diemthk)
 	{
 		$sql = "UPDATE diemhocphan SET ma_sv='$text_masv',ma_mon='$text_mamon',diem_giua_ky='$text_diemgk',diem_thi_hp='$text_diemthk' WHERE diemhocphan.ma_sv = '$text_masv' AND diemhocphan.ma_mon='$text_mamon'";

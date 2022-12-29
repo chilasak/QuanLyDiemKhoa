@@ -21,6 +21,9 @@ switch ($controllers) {
 	case 'export':
 		require_once 'Controllers/Quanly/Export.php';
 		break;
+	case 'import':
+		require_once 'Controllers/Quanly/Import.php';
+		break;
 	default:
 		// echo "controllers không tồn tại";
 		require_once 'Controllers/Login/dangnhap.php';

@@ -111,11 +111,25 @@
                 </div>
               </form>
               <!-- End TL -->
-              <div>
-                <a href="index.php?controllers=diem&action=Add_Diem_HP"><button class="btn btn-primary" type="submit">Thêm mới</button></a>
-                <input  type="file" class="btn btn-success" style="width: 170px; height: 40px;"> 
-                <button class="btn btn-success" type="button">Button</button>
+              
+              <div class="row">
+                <div class="col-md-12 head">
+                  <div class="float">
+                  <a href="index.php?controllers=diem&action=Add_Diem_HP"><button class="btn btn-primary" type="submit">Thêm mới</button></a>
+                  <a href="javascript:void(0)" class="btn btn-success" onclick="formToggle('importFrm');"> <i class="fas fa-fw fa-download"></i>Import</a>
+                  </div>
+                </div>
               </div>
+              <div class="col-md-12 border border-primary " id="importFrm" style="display: none;">
+              <div class="mx-auto " style="width:400px">
+              
+                    <form action="index.php?controllers=import&action=import_diem" method="post" enctype="multipart/form-data">        
+                        <input type="file" name="file" />
+                        <input type="submit" class="btn btn-primary" name="import" value="IMPORT">
+                        
+                    </form>
+                    </div>
+                </div>
               <br/>
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
@@ -203,6 +217,16 @@
 
 </body>
 <!-- Bootstrap core JavaScript-->
+<script>
+function formToggle(ID){
+    var element = document.getElementById(ID);
+    if(element.style.display === "none"){
+        element.style.display = "block";
+    }else{
+        element.style.display = "none";
+    }
+}
+</script>
 <script src="bootstraps/vendor/jquery/jquery.min.js"></script>
 <script src="bootstraps/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Core plugin JavaScript-->
